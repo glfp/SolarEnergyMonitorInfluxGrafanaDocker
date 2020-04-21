@@ -19,10 +19,10 @@ The hardware components used (and tested) in this project are:
 
 1) one Raspberry PI 4 (4Gb Model)
 2) two Energy Meter Eastron SDM230 with Modbus
-3) one RS483 to USB adapter
+3) one RS485 to USB adapter
 
 This project can be adapted to different hardware with few changes. 
-A Raspberry PI 3 can also be used, different Eastron Meters are supported, different USB/RS483 can be used. 
+A Raspberry PI 3 can also be used, different Eastron Meters are supported, different USB/RS485 can be used. 
 
 If anyone will use different gears, please advice me in order to update this pages and the tested hardwares.
 
@@ -40,14 +40,14 @@ Here a description of all the architecture components:
 
 - **Raspberry PI 4 (or 3) model**: the core of all the architecture, it contains all the software in order to elaborate the values from SDM and to reproduce in graphs form on any device (smartphone, tablet, personal computer). Installed with ***plain Raspian distro***.
 
-- **RS483 to USB adapter**: used to connect Modbus output from SDM to the Raspberry. Normally mapped as device `/dev/ttyUSB0` 
+- **RS485 to USB adapter**: used to connect Modbus output from SDM to the Raspberry. Normally mapped as device `/dev/ttyUSB0` 
 
 No other hardware components are needed.
 
 On the software side:
 
  - **Docker**: used v19.03.6 release. Manage a great environment for easy installation and applications isolation.
- - **MBMD** (ModBus Measurement Daemon): used v0.0.8 release. Read data from RS483 to USB adapter and write to InfluxDB. An open project written in Go language, with powerful features and opportunity to send data via MQTT. [Link to project MBMD.](https://github.com/volkszaehler/mbmd)
+ - **MBMD** (ModBus Measurement Daemon): used v0.0.8 release. Read data from RS485 to USB adapter and write to InfluxDB. An open project written in Go language, with powerful features and opportunity to send data via MQTT. [Link to project MBMD.](https://github.com/volkszaehler/mbmd)
  - **InfluxDB for docker**: used v1.7.9 release. It stores all the data coming from SMDs in a timeseries format for fast search. 
  - **Grafana for docker**: used v6.7.1 release. It create beautiful graph based on the data stored in InfluxDB.
 
@@ -201,7 +201,7 @@ You can change the parameters of the mbmd command as you need:
 
     -a /dev/ttyUSB0
     
-The device assigned to the RS483 reader
+The device assigned to the RS485 reader
 
     -d sdm:1,sdm:2
 
