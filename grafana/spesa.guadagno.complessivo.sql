@@ -1,0 +1,42 @@
+FV Complete - Multigraph Bar
+
+[A]
+SELECT difference(last("value")) *0.20 FROM "autogen"."data" WHERE ("device" = 'SDM1.1' AND "type" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')
+alias prelievo
+
+[B]
+SELECT difference(last("value")) *0.10 FROM "autogen"."data" WHERE ("device" = 'SDM1.1' AND "type" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')
+alias immissione
+
+[C]
+SELECT difference(last("value")) *0.20 FROM "autogen"."data" WHERE ("device" = 'SDM1.2' AND "type" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')
+alias produzione
+
+[D]
+SELECT (mean("prelievo") + mean("produzione") - mean("immissione")) * 0.20 as "consumo"  FROM
+( 
+SELECT difference(last("value")) as "prelievo" FROM "autogen"."data" WHERE ("device" = 'SDM1.1' AND "type" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')
+), 
+(
+SELECT difference(last("value")) as "immissione" FROM "autogen"."data" WHERE ("device" = 'SDM1.1' AND "type" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')
+),
+(
+SELECT difference(last("value"))  as "produzione" FROM "autogen"."data" WHERE ("device" = 'SDM1.2' AND "type" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')
+)
+GROUP BY time(1d) fill(null) tz('Europe/Rome')
+alias consumo
+
+[E]
+SELECT (mean("produzione") - mean("immissione")) * 0.20 as "autoconsumo"  FROM
+(
+SELECT difference(last("value")) as "immissione" FROM "autogen"."data" WHERE ("device" = 'SDM1.1' AND "type" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')
+),
+(
+SELECT difference(last("value")) as "produzione" FROM "autogen"."data" WHERE ("device" = 'SDM1.2' AND "type" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')
+)
+GROUP BY time(1d) fill(null) tz('Europe/Rome')
+alias autoconsumo
+
+
+Min time interval: 1d
+Relative Time: 30d/d
