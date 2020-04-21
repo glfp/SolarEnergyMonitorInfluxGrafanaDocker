@@ -5,7 +5,7 @@ Solar and Energy Monitoring with Influx (InfluxDB) and Grafana in Docker environ
 
 This project aims to monitor the production of energy from a photovoltaic solar system (PV), total consumption and self-consumption.
 
-![Overall](https://github.com/glfp/SolarEnergyMonitorInfluxGrafanaDocker/blob/master/assets/Overall.png?raw=true)
+![Overall](assets/Overall.png)
 
 In particular, using only two energy meters it is possible to obtain 5 measurements:
 
@@ -30,7 +30,7 @@ If anyone will use different gears, please advice me in order to update this pag
 
 Current implementation architecture (v1.0) is described in the following diagram:
 
-![Architecture](https://github.com/glfp/SolarEnergyMonitorInfluxGrafanaDocker/blob/master/assets/Architecture.png?raw=true) 
+![Architecture](assets/Architecture.png) 
 
 Here a description of all the architecture components:
 
