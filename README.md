@@ -44,7 +44,7 @@ Here a description of all the architecture components:
 
 No other hardware components are needed.
 
-On the sofware side:
+On the software side:
 
  - **Docker**: used v19.03.6 release. Manage a great environment for easy installation and applications isolation.
  - **MBMD** (ModBus Measurement Daemon): used v0.0.8 release. Read data from RS483 to USB adapter and write to InfluxDB. An open project written in Go language, with powerful features and opportunity to send data via MQTT. [Link to project MBMD.](https://github.com/volkszaehler/mbmd)
@@ -190,6 +190,12 @@ Pay attention to the row
     ExecStartPre=/bin/sleep 20
 
 This is important because if mbmd starts **before** InfluxDB, all fails. So we need to wait 20 secs in order to have InfluxDb correctly running before mbmd.
+
+Save the file, then launch the service
+
+	systemctl daemon-reload
+    service mbmd start
+
 
 You can change the parameters of the mbmd command as you need:
 
