@@ -231,10 +231,18 @@ In order to work properly, this dashboard needs the plugin **Multibar Graph Pane
 
 [Multibar Graph Panel](https://github.com/CorpGlory/grafana-multibar-graph-panel)
 
-In the
+    cd ~
+    wget https://github.com/CorpGlory/grafana-multibar-graph-panel/archive/master.zip
+    unzip master.zip
+    mv grafana-multibar-graph-panel-master/dist /docker/grafana/plugins/grafana-multibar-graph-panel
 
-[grafana](https://github.com/glfp/SolarEnergyMonitorInfluxGrafanaDocker/tree/master/grafana)
+Then restart grafana with
 
+    docker restart grafana
+
+### Grafana Dashboard Configuration
+
+In the [grafana](https://github.com/glfp/SolarEnergyMonitorInfluxGrafanaDocker/tree/master/grafana) 
 folder I insert the details of all the panels inside the dashboard. Every panel has its folder than contains:
 
 * the **queries.png** file with all the queries involved in the graph
