@@ -1,0 +1,3215 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "gnetId": null,
+    "graphTooltip": 0,
+    "id": 6,
+    "links": [],
+    "panels": [
+      {
+        "content": "<center><h1>Totale Impianto</h1></center>\n\n\n\n\n",
+        "datasource": null,
+        "gridPos": {
+          "h": 2,
+          "w": 12,
+          "x": 0,
+          "y": 0
+        },
+        "id": 16,
+        "mode": "html",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "",
+        "type": "text"
+      },
+      {
+        "content": "<center><h1>Totale Impianto - Time Range</h1></center>\n\n\n\n\n",
+        "datasource": null,
+        "gridPos": {
+          "h": 2,
+          "w": 12,
+          "x": 12,
+          "y": 0
+        },
+        "id": 21,
+        "mode": "html",
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "",
+        "type": "text"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 0,
+          "y": 2
+        },
+        "id": 12,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "purple",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT last(\"value\") - 67.02 FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import')",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Prelievo",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 2,
+          "y": 2
+        },
+        "id": 14,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT last(\"value\") FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') ",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Immissione",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 1,
+          "x": 4,
+          "y": 2
+        },
+        "id": 19,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT  (mean(\"immissione\") / mean(\"produzione\") ) * 100 as \"percimmissione\"   FROM\n( \nSELECT last(\"value\") - 67.02 as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import')\n), \n(\nSELECT last(\"value\")  as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') \n),\n(\nSELECT last(\"value\") -20.22 as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') \n)",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "%",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 5,
+          "y": 2
+        },
+        "id": 13,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "yellow",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT last(\"value\") -20.22 FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') ",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Produzione",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 7,
+          "y": 2
+        },
+        "id": 18,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT  mean(\"produzione\") - mean(\"immissione\") as \"consumo\"  FROM\n(\nSELECT last(\"value\")  as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') \n),\n(\nSELECT last(\"value\") -20.22 as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') \n)",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Autoconsumo",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 1,
+          "x": 9,
+          "y": 2
+        },
+        "id": 20,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT   (mean(\"produzione\") - mean(\"immissione\")) / (mean(\"prelievo\") + mean(\"produzione\")  - mean(\"immissione\")) * 100 as \"percautoconsumo\"    FROM\n( \nSELECT last(\"value\") - 67.02 as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import')\n), \n(\nSELECT last(\"value\")  as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') \n),\n(\nSELECT last(\"value\") -20.22 as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') \n)",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "%",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 10,
+          "y": 2
+        },
+        "id": 17,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-red",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT mean(\"prelievo\") + mean(\"produzione\") - mean(\"immissione\") as \"consumo\"  FROM\n( \nSELECT last(\"value\") - 67.02 as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import')\n), \n(\nSELECT last(\"value\")  as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') \n),\n(\nSELECT last(\"value\") -20.22 as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') \n)",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Consumo",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 12,
+          "y": 2
+        },
+        "id": 22,
+        "interval": "1d",
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "purple",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT last(\"value\") - first(\"value\") FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter ",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Prelievo",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 14,
+          "y": 2
+        },
+        "id": 24,
+        "interval": "1d",
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT last(\"value\") - first(\"value\") FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter ",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Immissione",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 1,
+          "x": 16,
+          "y": 2
+        },
+        "id": 28,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT  (mean(\"immissione\") / mean(\"produzione\") ) * 100 as \"percimmissione\"   FROM\n( \nSELECT last(\"value\") - first(\"value\")  as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter \n), \n(\nSELECT last(\"value\") - first(\"value\") as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter \n),\n(\nSELECT last(\"value\") - first(\"value\") as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter\n)",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "%",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 17,
+          "y": 2
+        },
+        "id": 23,
+        "interval": "1d",
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "yellow",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT last(\"value\") - first(\"value\") FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter ",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Produzione",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 19,
+          "y": 2
+        },
+        "id": 26,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT mean(\"produzione\") - mean(\"immissione\") as \"autoconsumo\"  FROM\n( \nSELECT last(\"value\") - first(\"value\")  as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter \n), \n(\nSELECT last(\"value\") - first(\"value\") as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter \n),\n(\nSELECT last(\"value\") - first(\"value\") as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter\n)",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "AutoConsumo",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 1,
+          "x": 21,
+          "y": 2
+        },
+        "id": 27,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "percent"
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT (mean(\"produzione\") - mean(\"immissione\")) / (mean(\"prelievo\") + mean(\"produzione\")  - mean(\"immissione\")) * 100 as \"percautoconsumo\"  FROM\n( \nSELECT last(\"value\") - first(\"value\")  as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter \n), \n(\nSELECT last(\"value\") - first(\"value\") as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter \n),\n(\nSELECT last(\"value\") - first(\"value\") as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter\n)",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "%",
+        "type": "stat"
+      },
+      {
+        "datasource": null,
+        "gridPos": {
+          "h": 4,
+          "w": 2,
+          "x": 22,
+          "y": 2
+        },
+        "id": 25,
+        "options": {
+          "colorMode": "value",
+          "fieldOptions": {
+            "calcs": [
+              "mean"
+            ],
+            "defaults": {
+              "decimals": 2,
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "dark-red",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [],
+            "values": false
+          },
+          "graphMode": "area",
+          "justifyMode": "auto",
+          "orientation": "auto"
+        },
+        "pluginVersion": "6.7.1",
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "none"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT mean(\"prelievo\") + mean(\"produzione\") - mean(\"immissione\") as \"consumo\"  FROM\n( \nSELECT last(\"value\") - first(\"value\")  as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter \n), \n(\nSELECT last(\"value\") - first(\"value\") as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter \n),\n(\nSELECT last(\"value\") - first(\"value\") as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter\n)",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "max"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Consumo",
+        "type": "stat"
+      },
+      {
+        "aliasColors": {
+          "Consumo": "#F2495C",
+          "autoconsumo": "#5794F2",
+          "consumo": "#C4162A",
+          "immissione": "#73BF69",
+          "prelievo": "#B877D9",
+          "produzione": "#FADE2A"
+        },
+        "bars": true,
+        "cacheTimeout": null,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "InfluxDB",
+        "decimals": 2,
+        "displayBarsSideBySide": true,
+        "fill": 1,
+        "gridPos": {
+          "h": 14,
+          "w": 24,
+          "x": 0,
+          "y": 6
+        },
+        "id": 4,
+        "interval": "",
+        "labelAlign": "left",
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "percentage": false,
+        "pluginVersion": "6.6.2",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "alias": "prelievo",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "immissione",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Export"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "produzione",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.2"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "consumo",
+            "expression": "A['prelievo'] + C['produzione'] - B['immissione']",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "outputMetricName": "consumo",
+            "periods": 7,
+            "policy": "default",
+            "query": "SELECT mean(\"prelievo\") + mean(\"produzione\") - mean(\"immissione\") as \"consumo\"  FROM\n( \nSELECT difference(last(\"value\")) as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n), \n(\nSELECT difference(last(\"value\")) as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n),\n(\nSELECT difference(last(\"value\")) as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n)\nGROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "queryType": "Arithmetic",
+            "rawQuery": true,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeshiftUnit": "days"
+          },
+          {
+            "alias": "autoconsumo",
+            "expression": "C['produzione'] - B['immissione']",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "outputMetricName": "autoconsumo",
+            "periods": 7,
+            "policy": "default",
+            "query": "SELECT mean(\"produzione\") - mean(\"immissione\") as \"autoconsumo\"  FROM\n( \nSELECT difference(last(\"value\")) as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n), \n(\nSELECT difference(last(\"value\")) as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n),\n(\nSELECT difference(last(\"value\")) as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n)\nGROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "queryType": "Arithmetic",
+            "rawQuery": true,
+            "refId": "E",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeshiftUnit": "days"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Utilizzo Giornaliero - Time Range",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "corpglory-multibar-graph-panel",
+        "xaxis": {
+          "buckets": null,
+          "customDateFormat": "%d %b",
+          "customDateFormatShow": true,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "kwatth",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "decimals": null,
+            "format": "kwatth",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ]
+      },
+      {
+        "aliasColors": {
+          "Consumo": "#F2495C",
+          "autoconsumo": "#5794F2",
+          "consumo": "#C4162A",
+          "immissione": "#73BF69",
+          "prelievo": "#B877D9",
+          "produzione": "#FADE2A"
+        },
+        "bars": true,
+        "cacheTimeout": null,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "MetaQueries",
+        "decimals": 2,
+        "displayBarsSideBySide": true,
+        "fill": 1,
+        "gridPos": {
+          "h": 16,
+          "w": 10,
+          "x": 0,
+          "y": 20
+        },
+        "id": 6,
+        "interval": "1d",
+        "labelAlign": "left",
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "percentage": false,
+        "pluginVersion": "6.6.2",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "alias": "prelievo",
+            "datasource": "InfluxDB",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "hide": true,
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null)",
+            "rawQuery": false,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "immissione",
+            "datasource": "InfluxDB",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "hide": true,
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null)",
+            "rawQuery": false,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Export"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "produzione",
+            "datasource": "InfluxDB",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null)",
+            "rawQuery": false,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.2"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "datasource": "MetaQueries",
+            "expression": "A['prelievo'] + C['produzione'] - B['immissione']",
+            "hide": true,
+            "outputMetricName": "consumo",
+            "periods": 7,
+            "queryType": "Arithmetic",
+            "refId": "D",
+            "timeshiftUnit": "days"
+          },
+          {
+            "datasource": "MetaQueries",
+            "expression": "C['produzione'] - B['immissione']",
+            "hide": true,
+            "outputMetricName": "autoconsumo",
+            "periods": 7,
+            "queryType": "Arithmetic",
+            "refId": "E",
+            "timeshiftUnit": "days"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeShift": null,
+        "title": "Utilizzo Giornaliero - Time Range",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "corpglory-multibar-graph-panel",
+        "xaxis": {
+          "buckets": null,
+          "customDateFormat": "%d %b",
+          "customDateFormatShow": true,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "kwatth",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "decimals": null,
+            "format": "kwatth",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ]
+      },
+      {
+        "aliasColors": {
+          "autoconsumo": "#5794F2",
+          "consumo": "#C4162A",
+          "immissione": "#73BF69",
+          "prelievo": "#B877D9",
+          "produzione": "#FADE2A"
+        },
+        "bars": true,
+        "cacheTimeout": null,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "InfluxDB",
+        "decimals": 2,
+        "displayBarsSideBySide": true,
+        "fill": 1,
+        "gridPos": {
+          "h": 16,
+          "w": 7,
+          "x": 10,
+          "y": 20
+        },
+        "id": 10,
+        "interval": "1d",
+        "labelAlign": "left",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "hideEmpty": false,
+          "hideZero": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "sortDesc": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "percentage": false,
+        "pluginVersion": "6.6.2",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "alias": "prelievo",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "immissione",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Export"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "produzione",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.2"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "consumo",
+            "expression": "A['prelievo'] + C['produzione'] - B['immissione']",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "outputMetricName": "consumo",
+            "periods": 7,
+            "policy": "default",
+            "query": "SELECT mean(\"prelievo\") + mean(\"produzione\") - mean(\"immissione\") as \"consumo\"  FROM\n( \nSELECT difference(last(\"value\")) as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n), \n(\nSELECT difference(last(\"value\")) as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n),\n(\nSELECT difference(last(\"value\")) as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n)\nGROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "queryType": "Arithmetic",
+            "rawQuery": true,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeshiftUnit": "days"
+          },
+          {
+            "alias": "autoconsumo",
+            "expression": "C['produzione'] - B['immissione']",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "outputMetricName": "autoconsumo",
+            "periods": 7,
+            "policy": "default",
+            "query": "SELECT mean(\"produzione\") - mean(\"immissione\") as \"autoconsumo\"  FROM\n( \nSELECT difference(last(\"value\")) as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n), \n(\nSELECT difference(last(\"value\")) as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n),\n(\nSELECT difference(last(\"value\")) as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n)\nGROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "queryType": "Arithmetic",
+            "rawQuery": true,
+            "refId": "E",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeshiftUnit": "days"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "30d/d",
+        "timeShift": null,
+        "title": "Import-Export Complessivo",
+        "tooltip": {
+          "shared": false,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "corpglory-multibar-graph-panel",
+        "xaxis": {
+          "buckets": null,
+          "customDateFormat": "",
+          "customDateFormatShow": false,
+          "mode": "series",
+          "name": null,
+          "show": true,
+          "values": [
+            "total"
+          ]
+        },
+        "yaxes": [
+          {
+            "decimals": 2,
+            "format": "kwatth",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "decimals": 2,
+            "format": "kwatth",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ]
+      },
+      {
+        "aliasColors": {
+          "autoconsumo": "#5794F2",
+          "consumo": "#C4162A",
+          "immissione": "#73BF69",
+          "prelievo": "#B877D9",
+          "produzione": "#FADE2A"
+        },
+        "bars": true,
+        "cacheTimeout": null,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "InfluxDB",
+        "decimals": 2,
+        "displayBarsSideBySide": true,
+        "fill": 1,
+        "gridPos": {
+          "h": 16,
+          "w": 7,
+          "x": 17,
+          "y": 20
+        },
+        "id": 2,
+        "interval": "1d",
+        "labelAlign": "left",
+        "legend": {
+          "alignAsTable": true,
+          "avg": false,
+          "current": false,
+          "hideEmpty": false,
+          "hideZero": false,
+          "max": false,
+          "min": false,
+          "rightSide": false,
+          "show": true,
+          "sortDesc": true,
+          "total": true,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "percentage": false,
+        "pluginVersion": "6.6.2",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "alias": "prelievo",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) *0.20 FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                },
+                {
+                  "params": [
+                    "*0.20"
+                  ],
+                  "type": "math"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "immissione",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) *0.10 FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                },
+                {
+                  "params": [
+                    "*0.10"
+                  ],
+                  "type": "math"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Export"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "produzione",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "hide": false,
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) *0.20 FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                },
+                {
+                  "params": [
+                    "*0.20"
+                  ],
+                  "type": "math"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.2"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "consumo",
+            "expression": "A['prelievo'] + C['produzione'] - B['immissione']",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "outputMetricName": "consumo",
+            "periods": 7,
+            "policy": "default",
+            "query": "SELECT (mean(\"prelievo\") + mean(\"produzione\") - mean(\"immissione\")) * 0.20 as \"consumo\"  FROM\n( \nSELECT difference(last(\"value\")) as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n), \n(\nSELECT difference(last(\"value\")) as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n),\n(\nSELECT difference(last(\"value\"))  as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n)\nGROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "queryType": "Arithmetic",
+            "rawQuery": true,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeshiftUnit": "days"
+          },
+          {
+            "alias": "autoconsumo",
+            "expression": "C['produzione'] - B['immissione']",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "outputMetricName": "autoconsumo",
+            "periods": 7,
+            "policy": "default",
+            "query": "SELECT (mean(\"produzione\") - mean(\"immissione\")) * 0.20 as \"autoconsumo\"  FROM\n(\nSELECT difference(last(\"value\")) as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n),\n(\nSELECT difference(last(\"value\")) as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n)\nGROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "queryType": "Arithmetic",
+            "rawQuery": true,
+            "refId": "E",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeshiftUnit": "days"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "30d/d",
+        "timeShift": null,
+        "title": "Spesa-Guadagno Complessivo",
+        "tooltip": {
+          "shared": false,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "corpglory-multibar-graph-panel",
+        "xaxis": {
+          "buckets": null,
+          "customDateFormat": "",
+          "customDateFormatShow": false,
+          "mode": "series",
+          "name": null,
+          "show": true,
+          "values": [
+            "total"
+          ]
+        },
+        "yaxes": [
+          {
+            "decimals": 2,
+            "format": "currencyEUR",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": "0",
+            "show": true
+          },
+          {
+            "decimals": 2,
+            "format": "currencyEUR",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ]
+      },
+      {
+        "aliasColors": {
+          "Consumo": "#F2495C",
+          "autoconsumo": "#5794F2",
+          "consumo": "#C4162A",
+          "immissione": "#73BF69",
+          "prelievo": "#B877D9",
+          "produzione": "#FADE2A"
+        },
+        "bars": true,
+        "cacheTimeout": null,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": "InfluxDB",
+        "decimals": 2,
+        "displayBarsSideBySide": true,
+        "fill": 1,
+        "gridPos": {
+          "h": 9,
+          "w": 15,
+          "x": 0,
+          "y": 36
+        },
+        "id": 5,
+        "interval": "1d",
+        "labelAlign": "left",
+        "legend": {
+          "alignAsTable": true,
+          "avg": true,
+          "current": false,
+          "max": true,
+          "min": true,
+          "show": true,
+          "total": false,
+          "values": true
+        },
+        "lines": false,
+        "linewidth": 1,
+        "links": [],
+        "nullPointMode": "null",
+        "percentage": false,
+        "pluginVersion": "6.6.2",
+        "pointradius": 5,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "alias": "prelievo",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "immissione",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "B",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.1"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Export"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "produzione",
+            "groupBy": [
+              {
+                "params": [
+                  "1d"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "autogen",
+            "query": "SELECT difference(last(\"value\")) FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "rawQuery": true,
+            "refId": "C",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "last"
+                },
+                {
+                  "params": [],
+                  "type": "difference"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.2"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ],
+            "tz": "Europe/Rome"
+          },
+          {
+            "alias": "consumo",
+            "expression": "A['prelievo'] + C['produzione'] - B['immissione']",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "outputMetricName": "consumo",
+            "periods": 7,
+            "policy": "default",
+            "query": "SELECT mean(\"prelievo\") + mean(\"produzione\") - mean(\"immissione\") as \"consumo\"  FROM\n( \nSELECT difference(last(\"value\")) as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n), \n(\nSELECT difference(last(\"value\")) as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n),\n(\nSELECT difference(last(\"value\")) as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n)\nGROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "queryType": "Arithmetic",
+            "rawQuery": true,
+            "refId": "D",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeshiftUnit": "days"
+          },
+          {
+            "alias": "autoconsumo",
+            "expression": "C['produzione'] - B['immissione']",
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "null"
+                ],
+                "type": "fill"
+              }
+            ],
+            "orderByTime": "ASC",
+            "outputMetricName": "autoconsumo",
+            "periods": 7,
+            "policy": "default",
+            "query": "SELECT mean(\"produzione\") - mean(\"immissione\") as \"autoconsumo\"  FROM\n( \nSELECT difference(last(\"value\")) as \"prelievo\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n), \n(\nSELECT difference(last(\"value\")) as \"immissione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.1' AND \"type\" = 'Export') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n),\n(\nSELECT difference(last(\"value\")) as \"produzione\" FROM \"autogen\".\"data\" WHERE (\"device\" = 'SDM1.2' AND \"type\" = 'Import') AND $timeFilter GROUP BY time(1d) fill(null) tz('Europe/Rome')\n)\nGROUP BY time(1d) fill(null) tz('Europe/Rome')",
+            "queryType": "Arithmetic",
+            "rawQuery": true,
+            "refId": "E",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [],
+            "timeshiftUnit": "days"
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": "15d/d",
+        "timeShift": null,
+        "title": "Import-Export Giornaliero",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "corpglory-multibar-graph-panel",
+        "xaxis": {
+          "buckets": null,
+          "customDateFormat": "%d %b",
+          "customDateFormatShow": true,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "kwatth",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "decimals": null,
+            "format": "kwatth",
+            "label": "",
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ]
+      },
+      {
+        "aliasColors": {
+          "data.mean": "yellow"
+        },
+        "bars": false,
+        "dashLength": 10,
+        "dashes": false,
+        "datasource": null,
+        "fill": 1,
+        "fillGradient": 0,
+        "gridPos": {
+          "h": 9,
+          "w": 9,
+          "x": 15,
+          "y": 36
+        },
+        "hiddenSeries": false,
+        "id": 8,
+        "interval": "",
+        "legend": {
+          "avg": false,
+          "current": false,
+          "max": false,
+          "min": false,
+          "show": true,
+          "total": false,
+          "values": false
+        },
+        "lines": true,
+        "linewidth": 1,
+        "nullPointMode": "null",
+        "options": {
+          "dataLinks": []
+        },
+        "percentage": false,
+        "pointradius": 2,
+        "points": false,
+        "renderer": "flot",
+        "seriesOverrides": [],
+        "spaceLength": 10,
+        "stack": false,
+        "steppedLine": false,
+        "targets": [
+          {
+            "groupBy": [
+              {
+                "params": [
+                  "$__interval"
+                ],
+                "type": "time"
+              },
+              {
+                "params": [
+                  "previous"
+                ],
+                "type": "fill"
+              }
+            ],
+            "measurement": "data",
+            "orderByTime": "ASC",
+            "policy": "default",
+            "refId": "A",
+            "resultFormat": "time_series",
+            "select": [
+              [
+                {
+                  "params": [
+                    "value"
+                  ],
+                  "type": "field"
+                },
+                {
+                  "params": [],
+                  "type": "mean"
+                }
+              ]
+            ],
+            "tags": [
+              {
+                "key": "device",
+                "operator": "=",
+                "value": "SDM1.2"
+              },
+              {
+                "condition": "AND",
+                "key": "type",
+                "operator": "=",
+                "value": "Import"
+              }
+            ]
+          }
+        ],
+        "thresholds": [],
+        "timeFrom": null,
+        "timeRegions": [],
+        "timeShift": null,
+        "title": "Panel Title",
+        "tooltip": {
+          "shared": true,
+          "sort": 0,
+          "value_type": "individual"
+        },
+        "type": "graph",
+        "xaxis": {
+          "buckets": null,
+          "mode": "time",
+          "name": null,
+          "show": true,
+          "values": []
+        },
+        "yaxes": [
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          },
+          {
+            "format": "short",
+            "label": null,
+            "logBase": 1,
+            "max": null,
+            "min": null,
+            "show": true
+          }
+        ],
+        "yaxis": {
+          "align": false,
+          "alignLevel": null
+        }
+      }
+    ],
+    "refresh": "1m",
+    "schemaVersion": 22,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-30d",
+      "to": "now"
+    },
+    "timepicker": {
+      "refresh_intervals": [
+        "5s",
+        "10s",
+        "30s",
+        "1m",
+        "5m",
+        "15m",
+        "30m",
+        "1h",
+        "2h",
+        "1d"
+      ]
+    },
+    "timezone": "",
+    "title": "FV - Statistiche",
+    "uid": "fNqpf_ggk",
+    "variables": {
+      "list": []
+    },
+    "version": 17
+  }
