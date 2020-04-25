@@ -223,7 +223,7 @@ Moreover is not the purpose of this project to explain how Grafana works.
 
 I uploaded in this project an export of my current most complete dashboard (the first above image) in file
 
-[dashboard.json](https://github.com/glfp/SolarEnergyMonitorInfluxGrafanaDocker/blob/master/grafana/dashboard.json)
+[dashboard.json](https://github.com/glfp/SolarEnergyMonitorInfluxGrafanaDocker/blob/master/grafana/Dashboard-Complete/dashboard.json)
 
 You can use out-of-the-box my implementation **only if you have the same two SDMs** installed like me.
 
