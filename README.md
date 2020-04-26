@@ -90,7 +90,7 @@ Install InfluxDb with:
 
 After installation, check if all is ok with:
 
-    curl -G [http://localhost:8086/query](http://localhost:8086/query) --data-urlencode "q=SHOW DATABASES"
+    curl -G http://localhost:8086/query --data-urlencode "q=SHOW DATABASES"
 
 Then create your first database:
 
